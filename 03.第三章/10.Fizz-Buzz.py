@@ -3,3 +3,30 @@
 # 家时，他必须说出自己的数字或以下替换内容：如果玩家的数字能被3整除，那么玩家说fizz而不是数字。如果玩家的数字能被5整除，那么玩家说的是buzz而不是数字。
 # 对于能被3和5整除的数，玩家必须同时说出fizz和 buzz。任何没有执行正确的替换或者在回答之前犹豫的玩家将被淘汰出局。最后一名玩家获胜。
 # 编写一个程序，在Fizz-Buzz游戏中显示前100个数字的答案。每个答案应该单独占一行。
+
+def fizz_buzz():
+    """
+    生成并打印 Fizz-Buzz 游戏前 100 个数字的答案。
+    """
+    for number in range(1, 101):
+        # 初始化一个空字符串，用于存储替换的单词
+        output = ""
+
+        # 检查是否能被 3 整除
+        if number % 3 == 0:
+            output += "fizz"
+
+        # 检查是否能被 5 整除
+        if number % 5 == 0:
+            output += "buzz"
+
+        # 如果 output 仍然为空，则表示数字不能被 3 或 5 整除，
+        # 此时应该打印数字本身。
+        if output == "":
+            print(number)
+        else:
+            # 否则，打印替换后的单词（fizz, buzz 或 fizzbuzz）
+            print(output)
+
+# 运行程序
+fizz_buzz()

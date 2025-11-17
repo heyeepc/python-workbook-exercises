@@ -10,3 +10,11 @@ for z in a[::-1]:
         c = c + 2**b
 print(c)
 
+binary = input("输入一串二进制: ")
+decimal = 0
+
+for i, bit in enumerate(binary[::-1]):
+    if bit == "1":
+        decimal += 2 ** i
+
+print(decimal)

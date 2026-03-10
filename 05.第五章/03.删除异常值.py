@@ -18,8 +18,10 @@ def remove_extreme_values(data, n):
         new_list.pop()
 
     return new_list
-
-
+    
+#切片
+#def remove_extreme_values(data, n):
+    #return sorted(data)[n:-n]
 def main():
     # 读取用户输入
     user_input = input("请输入一组数字（用空格分隔）：")

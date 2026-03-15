@@ -4,3 +4,31 @@
 
 # 编写一个main程序来演示函数。它应该从用户那里读取一个字符串，然后显示字符串中的所有单词，去掉标点符号。
 # 完成练习118和 167时，需要导入该解答。因此，应该确保main程序只在文件没有导入另一个程序时运行。
+def extract_words(text):
+    punctuation = ",.?-!'\":;"
+    
+    words = text.split()
+    
+    result = []
+    
+    for word in words:
+        clean_word = word.strip(punctuation)
+        
+        if clean_word != "":
+            result.append(clean_word)
+    
+    return result
+
+
+def main():
+    text = input("请输入一个字符串: ")
+    
+    words = extract_words(text)
+    
+    print("提取的单词:")
+    for w in words:
+        print(w)
+
+
+if __name__ == "__main__":
+    main()

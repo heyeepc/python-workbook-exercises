@@ -3,3 +3,38 @@
 # 首先编写一个名为createDeck的函数。它使用循环来创建一副完整的纸牌，方法是将52张纸牌的两字符缩写存储到一个列表中。返回卡片列表作为函数的唯一结果。
 # 函数不需要任何参数。编写第二个名为shuffle的函数，用于随机化列表中纸牌的顺序。可以用来洗牌的一种技术是访问列表中的每个元素，并将其与列表中的另一个随机元素交换。
 # 必须编写自己的洗牌循环。不能使用Python的内置shuffle（）函数。使用前几段中描述的两个函数创建一个main程序，该main程序显示洗牌前后的一副牌。确保main程序只在函数没有导入另一个文件时运行。
+import random
+
+def createDeck():
+    deck_1 = ["2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"]
+    deck_2 = ["s", "h", "d", "c"]
+    
+    # 将 [x, y] 改为 x + y，这样得到的就是 "2s"、"3h" 这样的字符串，而不是列表
+    deck = [x + y for x in deck_1 for y in deck_2]
+    return deck
+
+def shuffle(deck):
+    # 获取牌堆的总长度（52）
+    n = len(deck)
+    
+    # 从最后一张牌（索引 n-1）倒序遍历到第二张牌（索引 1）
+    for i in range(n - 1, 0, -1):
+        # 随机选择一个从 0 到 i 之间的索引
+        j = random.randint(0, i)
+        
+        # 交换当前位置 i 和随机位置 j 的牌
+        deck[i], deck[j] = deck[j], deck[i]
+        
+    return deck
+
+if __name__ == '__main__':
+    # 1. 创建一副新牌
+    my_deck = createDeck()
+    print("--- 洗牌前的牌堆 ---")
+    print(my_deck)
+    print("\n" + "="*50 + "\n")
+    
+    # 2. 洗牌
+    shuffled_deck = shuffle(my_deck)
+    print("--- 洗牌后的牌堆 ---")
+    print(shuffled_deck)
